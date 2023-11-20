@@ -17,6 +17,10 @@ public class Letter : MonoBehaviour
     {
         return isCollected;
     }
+    public int GetPosition()
+    {
+        return position;
+    }
 
 
 }

@@ -7,10 +7,6 @@ using UnityEngine.Assertions.Must;
 
 public class Collectables : MonoBehaviour
 {
-    //id -> put keys in the dictionary
-    private int idO = 0;
-    private int idL = 0;
-
 
     //red orbs
     [SerializeField] private GameObject[] orbsR;
@@ -23,20 +19,22 @@ public class Collectables : MonoBehaviour
 
     public Dictionary<int, GameObject> CreateRedOrbsDictionary()
     {
+        int id = 0;
         foreach (GameObject orb in orbsR)
         {
-            redOrbs.Add(idO,orb);
-            idO++;
+            redOrbs.Add(id,orb);
+            id++;
         }
         return redOrbs;
     }
 
     public Dictionary<int, GameObject> CreateRedLettersDictionary()
     {
+        int id = 0;
         foreach (GameObject letter in lettersR)
         {
-            redLetters.Add(idL, letter);
-            idL++;
+            redLetters.Add(id, letter);
+            id++;
         }
         return redLetters;
     }
