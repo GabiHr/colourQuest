@@ -49,7 +49,7 @@ public class CollectibleManager : MonoBehaviour
                     }
 
 
-                    TMPro.text = "4 / " + countRedOrbs;
+                    TMPro.text = countRedOrbs + " / 4";
 
 
                     // debuging
