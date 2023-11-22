@@ -2131,7 +2131,7 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     serializedVersion: 2
-    filterMode: 1
+    filterMode: 0
     aniso: 1
     mipBias: 0
     wrapU: 1
@@ -2169,7 +2169,7 @@ TextureImporter:
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 1
+    textureCompression: 0
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -17052,8 +17052,8 @@ TextureImporter:
       bg_08_brown_523: -7770646267116581296
       bg_08_brown_419: -5248352242674153172
       bg_08_brown_662: -5655169887529947077
-      bg_08_brown_3: -7848621974307244017
       bg_08_brown_649: 4407908026805917444
+      bg_08_brown_3: -7848621974307244017
       bg_08_brown_340: -6728319127331304241
       bg_08_brown_688: 8283082743287606359
       bg_08_brown_285: 5468724572204242599
@@ -17108,8 +17108,8 @@ TextureImporter:
       bg_08_brown_144: -2168791149316420436
       bg_08_brown_373: 6273005492595483885
       bg_08_brown_75: -5767160755490969737
-      bg_08_brown_170: -2250794543363435142
       bg_08_brown_517: -4517120049824151504
+      bg_08_brown_170: -2250794543363435142
       bg_08_brown_614: 8270437433994400902
       bg_08_brown_590: -8480521211926263518
       bg_08_brown_221: -851682618228208525
@@ -17143,8 +17143,8 @@ TextureImporter:
       bg_08_brown_683: -6235584312958211729
       bg_08_brown_112: 9036686656914087683
       bg_08_brown_199: -5350754863001924072
-      bg_08_brown_437: -3671027841241304456
       bg_08_brown_462: 8110282256735846185
+      bg_08_brown_437: -3671027841241304456
       bg_08_brown_223: 1453342404850509571
       bg_08_brown_133: -5332337699163222950
       bg_08_brown_360: 6234641925947954696
@@ -17318,8 +17318,8 @@ TextureImporter:
       bg_08_brown_382: -7954808952180160977
       bg_08_brown_205: 2783977929461008543
       bg_08_brown_90: -937916614737991790
-      bg_08_brown_177: 8718631089655113766
       bg_08_brown_509: 3913132590018779070
+      bg_08_brown_177: 8718631089655113766
       bg_08_brown_566: 6711043540313898295
       bg_08_brown_475: -480406440498521335
       bg_08_brown_326: 7907247524552100560
@@ -17484,9 +17484,9 @@ TextureImporter:
       bg_08_brown_646: -7948940983196125701
       bg_08_brown_130: -2482306220525841930
       bg_08_brown_213: -8793504809480534640
+      bg_08_brown_471: 8250117131590220312
       bg_08_brown_74: -3281200343083894377
       bg_08_brown_521: -3694250921152008818
-      bg_08_brown_471: 8250117131590220312
       bg_08_brown_696: -825176165469401420
       bg_08_brown_455: 8662890803634355346
       bg_08_brown_226: -2126602292402844757
