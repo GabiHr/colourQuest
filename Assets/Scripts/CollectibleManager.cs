@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Runtime.InteropServices.WindowsRuntime;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
@@ -9,6 +10,8 @@ public class CollectibleManager : MonoBehaviour
     [SerializeField] private Collectables collectables;
     [SerializeField] private TextMeshProUGUI TMPro;
     [SerializeField] private Image[] images;
+    [SerializeField] private GameObject word;
+    [SerializeField] private CharacterController2D character;
 
     //Red Orbs
     private int countRedOrbs = 0;
@@ -18,6 +21,7 @@ public class CollectibleManager : MonoBehaviour
     //Red Letters
     private GameObject currentLetter;
     private Dictionary<int, GameObject> redLetters;
+    private int collectedCount = 0;
 
     private void Start()
     {
@@ -28,7 +32,6 @@ public class CollectibleManager : MonoBehaviour
         redLetters = new Dictionary<int, GameObject>();
         redLetters = collectables.CreateRedLettersDictionary();
     }
-
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
@@ -78,14 +81,36 @@ public class CollectibleManager : MonoBehaviour
                             img.enabled = true;
                         }
                     }
-                    
+
+                    if (!letter.GetIsCounted())
+                    {
+                        collectedCount++;
+                        letter.SetIsCounted(true);
+
+                    }
+
                     // debuging
+                    Debug.Log("Counterrrr: " + collectedCount);
                     Debug.Log(currentLetter.gameObject.name);
                     Debug.Log("Current Letter: Key = " + i + " , Value = " + redLetters[i] + "isCollected: " + letter.GetIsCollected());
                 }
             }
+            if(collectedCount == redLetters.Count)
+            {
+                StartCoroutine(CheckWord());
+            }
 
         }
+    }
+
+
+    public IEnumerator CheckWord()
+    {
+        character.enabled = false;
+        word.SetActive(true);
+        yield return new WaitForSeconds(5);
+        word.SetActive(false);
+        character.enabled = true;
     }
 
 }

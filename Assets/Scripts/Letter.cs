@@ -7,11 +7,22 @@ public class Letter : MonoBehaviour
     [SerializeField] private int position;
 
     private bool isCollected = false;
+    private bool isCounted = false;
     private int id;
 
     public void SetIsCollected(bool isCollected)
     {
         this.isCollected = isCollected;
+    }
+
+    public void SetIsCounted(bool isCounted) 
+    {  
+        this.isCounted = isCounted;
+    }
+
+    public bool GetIsCounted()
+    {
+        return this.isCounted;
     }
     public bool GetIsCollected()
     {
@@ -21,6 +32,7 @@ public class Letter : MonoBehaviour
     {
         return position;
     }
+  
 
 
 }
