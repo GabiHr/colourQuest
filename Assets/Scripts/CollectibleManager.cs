@@ -11,7 +11,7 @@ public class CollectibleManager : MonoBehaviour
     [SerializeField] private TextMeshProUGUI TMPro;
     [SerializeField] private Image[] images;
     [SerializeField] private GameObject word;
-    [SerializeField] private CharacterController2D character;
+    [SerializeField] private PlayerMovement character;
 
     //Red Orbs
     private int countRedOrbs = 0;
@@ -106,11 +106,9 @@ public class CollectibleManager : MonoBehaviour
 
     public IEnumerator CheckWord()
     {
-        character.enabled = false;
         word.SetActive(true);
         yield return new WaitForSeconds(5);
         word.SetActive(false);
-        character.enabled = true;
     }
 
 }
