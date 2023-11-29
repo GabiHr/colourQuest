@@ -106,6 +106,7 @@ public class CollectibleManager : MonoBehaviour
 
     public IEnumerator CheckWord()
     {
+        
         word.SetActive(true);
         yield return new WaitForSeconds(5);
         word.SetActive(false);
