@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour
@@ -7,6 +8,8 @@ public class PlayerMovement : MonoBehaviour
 
     public CharacterController2D controller;
     public Animator animator;
+    public GameObject character;
+
     
     
     //movement
@@ -14,7 +17,12 @@ public class PlayerMovement : MonoBehaviour
     float runSpeed = 40f;
     bool jump = false;
     bool crouch = false;
- 
+
+    //death
+    [SerializeField] public GameObject startPosition;
+    private int counter = 0;
+    [SerializeField] private TextMeshProUGUI TMPro;
+
     void Update()
     {
         horizontalMove = Input.GetAxisRaw("Horizontal")*runSpeed;
@@ -53,6 +61,16 @@ public class PlayerMovement : MonoBehaviour
 
     }
 
+    public void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.gameObject.tag.Contains("obstacle"))
+        {
+            character.transform.position = startPosition.transform.position;
+            counter++;
+            Debug.Log("Deaths: " + counter);
+            TMPro.text = counter.ToString();
+        }
+    }
 
 
 }
