@@ -6,8 +6,8 @@ public class Orb : MonoBehaviour
 {
     private bool isCollected = false;
     private int id;
-
-
+    public AudioClip collect;
+  
 
     public void SetIsCollected(bool isCollected)
     {
@@ -17,6 +17,11 @@ public class Orb : MonoBehaviour
     public bool GetIsCollected()
     {
         return isCollected;
+    }
+
+    public void PlayAudio()
+    {
+        AudioSource.PlayClipAtPoint(collect, transform.position);
     }
 }
 

@@ -10,6 +10,9 @@ public class Letter : MonoBehaviour
     private bool isCounted = false;
     private int id;
 
+    public AudioClip collect;
+
+
     public void SetIsCollected(bool isCollected)
     {
         this.isCollected = isCollected;
@@ -33,6 +36,9 @@ public class Letter : MonoBehaviour
         return position;
     }
   
-
+    public void PlayAudio()
+    {
+        AudioSource.PlayClipAtPoint(collect, transform.position);
+    }
 
 }

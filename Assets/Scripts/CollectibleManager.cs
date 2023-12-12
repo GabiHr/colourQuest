@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.Runtime.InteropServices.WindowsRuntime;
+using System.Threading;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
@@ -49,6 +50,7 @@ public class CollectibleManager : MonoBehaviour
                     {
                         countRedOrbs++;
                         orb.SetIsCollected(true);
+                        orb.PlayAudio();
                     }
 
 
@@ -86,7 +88,7 @@ public class CollectibleManager : MonoBehaviour
                     {
                         collectedCount++;
                         letter.SetIsCounted(true);
-
+                        letter.PlayAudio();
                     }
 
                     // debuging
