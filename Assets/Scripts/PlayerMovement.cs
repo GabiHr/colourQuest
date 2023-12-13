@@ -22,6 +22,7 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] public GameObject startPosition;
     private int counter = 0;
     [SerializeField] private TextMeshProUGUI TMPro;
+    float invulnerabilityTime = 0;
 
     void Update()
     {
@@ -42,12 +43,17 @@ public class PlayerMovement : MonoBehaviour
         {
             crouch = false;
         }
+
+
+        if (invulnerabilityTime > 0)
+        {
+            invulnerabilityTime -= Time.deltaTime;
+        }
     }
 
     public void OnLanding()
     {
         animator.SetBool("IsJumping", false);
-
     }
 
     public void OnCrouching(bool isCrouching)
@@ -63,12 +69,12 @@ public class PlayerMovement : MonoBehaviour
 
     public void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.gameObject.tag.Contains("obstacle"))
+        if (collision.gameObject.tag.Contains("obstacle") && invulnerabilityTime <= 0)
         {
-            character.transform.position = startPosition.transform.position;
             counter++;
-            Debug.Log("Deaths: " + counter);
+            character.transform.position = startPosition.transform.position;
             TMPro.text = counter.ToString();
+            invulnerabilityTime = 0.5f;
         }
     }
 
