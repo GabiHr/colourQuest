@@ -8115,7 +8115,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 746486814}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -99.259895, y: -48.5433, z: -10}
+  m_LocalPosition: {x: -97.68824, y: -48.53051, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -19656,12 +19656,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c571719769d94bf4f8c1daecd402f160, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  orbsR:
+  orbsList:
   - {fileID: 61591288}
   - {fileID: 426915262}
   - {fileID: 1053209215}
   - {fileID: 317385166}
-  lettersR:
+  lettersList:
   - {fileID: 2131816034}
   - {fileID: 1380782180}
   - {fileID: 65189962}

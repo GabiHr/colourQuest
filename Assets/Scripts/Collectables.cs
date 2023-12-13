@@ -9,34 +9,34 @@ public class Collectables : MonoBehaviour
 {
 
     //red orbs
-    [SerializeField] private GameObject[] orbsR;
-    Dictionary<int,GameObject> redOrbs = new Dictionary<int,GameObject>();
+    [SerializeField] private GameObject[] orbsList;
+    Dictionary<int,GameObject> orbs = new Dictionary<int,GameObject>();
 
     //red letters
-    [SerializeField] private GameObject[] lettersR;
-    Dictionary<int, GameObject> redLetters = new Dictionary<int, GameObject>();
+    [SerializeField] private GameObject[] lettersList;
+    Dictionary<int, GameObject> letters = new Dictionary<int, GameObject>();
 
 
     public Dictionary<int, GameObject> CreateRedOrbsDictionary()
     {
         int id = 0;
-        foreach (GameObject orb in orbsR)
+        foreach (GameObject orb in orbsList)
         {
-            redOrbs.Add(id,orb);
+            orbs.Add(id,orb);
             id++;
         }
-        return redOrbs;
+        return orbs;
     }
 
     public Dictionary<int, GameObject> CreateRedLettersDictionary()
     {
         int id = 0;
-        foreach (GameObject letter in lettersR)
+        foreach (GameObject letter in lettersList)
         {
-            redLetters.Add(id, letter);
+            letters.Add(id, letter);
             id++;
         }
-        return redLetters;
+        return letters;
     }
 
 

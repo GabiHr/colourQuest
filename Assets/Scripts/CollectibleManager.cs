@@ -15,23 +15,23 @@ public class CollectibleManager : MonoBehaviour
     [SerializeField] private PlayerMovement character;
 
     //Red Orbs
-    private int countRedOrbs = 0;
+    private int countOrbs = 0;
     private GameObject currentOrb;
-    private Dictionary<int, GameObject> redOrbs;
+    private Dictionary<int, GameObject> orbs;
 
     //Red Letters
     private GameObject currentLetter;
-    private Dictionary<int, GameObject> redLetters;
+    private Dictionary<int, GameObject> letters;
     private int collectedCount = 0;
 
     private void Start()
     {
         //orbs
-        redOrbs = new Dictionary<int, GameObject>();
-        redOrbs = collectables.CreateRedOrbsDictionary();
+        orbs = new Dictionary<int, GameObject>();
+        orbs = collectables.CreateRedOrbsDictionary();
         //letters
-        redLetters = new Dictionary<int, GameObject>();
-        redLetters = collectables.CreateRedLettersDictionary();
+        letters = new Dictionary<int, GameObject>();
+        letters = collectables.CreateRedLettersDictionary();
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -39,28 +39,28 @@ public class CollectibleManager : MonoBehaviour
         if (collision.tag.Contains("Orb"))
         {
             currentOrb = collision.gameObject;
-            for (int i = 0; i < redOrbs.Count; i++)
+            for (int i = 0; i < orbs.Count; i++)
             {
-                if (redOrbs[i] == currentOrb)
+                if (orbs[i] == currentOrb)
                 {
                     Destroy(currentOrb);
-                    Orb orb = redOrbs[i].gameObject.GetComponent<Orb>();
+                    Orb orb = orbs[i].gameObject.GetComponent<Orb>();
                     
                     if (!orb.GetIsCollected())
                     {
-                        countRedOrbs++;
+                        countOrbs++;
                         orb.SetIsCollected(true);
                         orb.PlayAudio();
                     }
 
 
-                    TMPro.text = countRedOrbs + " / 4";
+                    TMPro.text = countOrbs + " / 4";
 
 
                     // debuging
-                    Debug.Log(redOrbs[i].gameObject.name);
-                    Debug.Log("Count -> " + countRedOrbs);
-                    Debug.Log("Current Orb: Key = " + i + " , Value = " + redOrbs[i] + "isCollected: " + orb.GetIsCollected());
+                    Debug.Log(orbs[i].gameObject.name);
+                    Debug.Log("Count -> " + countOrbs);
+                    Debug.Log("Current Orb: Key = " + i + " , Value = " + orbs[i] + "isCollected: " + orb.GetIsCollected());
                 }
             }
 
@@ -68,12 +68,12 @@ public class CollectibleManager : MonoBehaviour
         else if (collision.tag.Contains("Letter"))
         {
             currentLetter = collision.gameObject;
-            for (int i = 0; i < redLetters.Count; i++)
+            for (int i = 0; i < letters.Count; i++)
             {
-                if (redLetters[i] == currentLetter)
+                if (letters[i] == currentLetter)
                 {
                     Destroy(currentLetter);
-                    Letter letter = redLetters[i].gameObject.GetComponent<Letter>();
+                    Letter letter = letters[i].gameObject.GetComponent<Letter>();
                     letter.SetIsCollected(true);
                     
                     foreach (Image img in images)
@@ -94,10 +94,10 @@ public class CollectibleManager : MonoBehaviour
                     // debuging
                     Debug.Log("Counterrrr: " + collectedCount);
                     Debug.Log(currentLetter.gameObject.name);
-                    Debug.Log("Current Letter: Key = " + i + " , Value = " + redLetters[i] + "isCollected: " + letter.GetIsCollected());
+                    Debug.Log("Current Letter: Key = " + i + " , Value = " + letters[i] + "isCollected: " + letter.GetIsCollected());
                 }
             }
-            if(collectedCount == redLetters.Count)
+            if(collectedCount == letters.Count)
             {
                 StartCoroutine(CheckWord());
             }
